@@ -1,0 +1,26 @@
+{
+  "name": "app_srv",
+  "version": "0.0.1",
+  "description": "per project server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GAndriyS/APP_SRV.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "author": "Andrii Gorbatiuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GAndriyS/APP_SRV/issues"
+  },
+  "homepage": "https://github.com/GAndriyS/APP_SRV#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
