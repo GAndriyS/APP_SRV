@@ -3,6 +3,6 @@ const app = express();
 
 const authentication = require('./routes/authentication.js');
 
-app.get('/', authentication);
+app.use('/auth', authentication);
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
