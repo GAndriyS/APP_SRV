@@ -12,6 +12,14 @@ const FACEBOOK_APP_ID = 1790902114267774;
 const FACEBOOK_APP_SECRET = '84e8bb9ab42f48543f51668676973d59';
 const CB_URL = 'http://localhost:3000/auth/facebook/callback';
 
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
+
 passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
@@ -32,21 +40,17 @@ passport.use(new FacebookStrategy({
         });
         fbUser.save();
       }
-      done(`${profile.id} ${profile.displayName} ${profile.gender}`);
+      done(err, user);
     });
   }
 ));
 
 router.get('/facebook', passport.authenticate('facebook', { scope: 'public_profile' }));
 router.get('/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  passport.authenticate('facebook', { failureRedirect: '/login'}),
   (req, res) => {
-    res.send('sucess login');
+    res.redirect('/app');
   }
 );
-
-router.get('/', (req, res) => {
-  res.send('login page');
-});
 
 module.exports = router;
