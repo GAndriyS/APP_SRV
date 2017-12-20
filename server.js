@@ -14,5 +14,8 @@ app.use('/auth', authentication);
 app.get('/app', (req, res) => {
   res.send('Welcome ! :)');
 });
+app.get('/login', (req, res) => {
+  res.send('Login first!');
+});
 
 app.listen(3000, () => console.log('Server listening on port 3000'));
