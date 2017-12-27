@@ -4,7 +4,7 @@
   "description": "per project server",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node --inspect --debug-brk server.js"
   },
   "repository": {
     "type": "git",
