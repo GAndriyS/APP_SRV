@@ -4,13 +4,16 @@ const passport = require('passport');
 
 const app = express();
 
-const authentication = require('./routes/authentication.js');
+const authentication = require('./routes/authentication');
+const user = require('./routes/user');
 
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/auth', authentication);
+app.use('/user', user);
+
 app.get('/app', (req, res) => {
   res.send('Welcome ! :)');
 });
