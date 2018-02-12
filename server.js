@@ -7,6 +7,13 @@ const app = express();
 const authentication = require('./routes/authentication');
 const user = require('./routes/user');
 
+app.use((req, res, next) => {
+  res.header('Content-Type', 'text/plain');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept, Authorization');
+  next();
+});
+
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -21,4 +28,4 @@ app.get('/login', (req, res) => {
   res.send('Login first!');
 });
 
-app.listen(3000, () => console.log('Server listening on port 3000'));
+app.listen(4000, () => console.log('Server listening on port 4000'));
